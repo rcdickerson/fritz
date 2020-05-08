@@ -1,3 +1,4 @@
+import argparse
 import csv
 import numpy as np
 from tqdm import tqdm
@@ -9,56 +10,68 @@ from allennlp.data.tokenizers.word_tokenizer import WordTokenizer
 from allennlp.models.model import Model
 from allennlp.predictors.predictor import Predictor
 
-MODEL_PARAMS_FILE = 'model_params/da.jsonnet'
-MODEL_DIR = 'models/da'
-INPUT_TSV = 'eval_sets/hans.tsv'
 
-tokenizer = WordTokenizer()
-token_indexer = SingleIdTokenIndexer(lowercase_tokens=True)
-reader = SnliReader(tokenizer=tokenizer, token_indexers={'tokens': token_indexer})
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description='Evaluate dataset accuracy on a variety of NLI models.')
+    parser.add_argument('--model_params', type=str,
+                        help='the .jsonnet model configuration', required=True)
+    parser.add_argument('--model_dir', type=str,
+                        help='the model serialization directory', required=True)
+    parser.add_argument('--eval_set', type=str,
+                        help='the evaluation data set', required=True)
+    return parser.parse_args()
 
-print('Loading model params from ' + MODEL_PARAMS_FILE)
-model_params = Params.from_file(MODEL_PARAMS_FILE)
 
-print('Loading model from ' + MODEL_DIR)
-model = Model.load(model_params, MODEL_DIR)
+def main():
+    args = parse_args()
 
-print('Evaluating model over ' + INPUT_TSV)
-with open(INPUT_TSV, 'r') as f:
-    entailed_correct = 0
-    entailed_incorrect = 0
-    nonentailed_correct = 0
-    nonentailed_incorrect = 0
-    total_correct = 0
-    total_incorrect = 0
+    tokenizer = WordTokenizer()
+    token_indexer = SingleIdTokenIndexer(lowercase_tokens=True)
+    reader = SnliReader(tokenizer=tokenizer, token_indexers={'tokens': token_indexer})
 
-    tsv_reader = csv.DictReader(f, delimiter='\t')
-    for row in tqdm(tsv_reader):
-        premise = row['sentence1']
-        hypothesis = row['sentence2']
+    print('Loading model params from ' + args.model_params)
+    model_params = Params.from_file(args.model_params)
 
-        instance = reader.text_to_instance(premise, hypothesis)
-        logits = model.forward_on_instance(instance)['label_logits']
-        label_id = np.argmax(logits)
-        label = model.vocab.get_token_from_index(label_id, 'labels')
+    print('Loading model from ' + args.model_dir)
+    model = Model.load(model_params, args.model_dir)
 
-        # Contradiction and neutral are both "non-entailment".
-        is_pred_entailment = label == 'entailment'
-        is_gold_entailment = row['gold_label'] == 'entailment'
-        is_correct = is_pred_entailment == is_gold_entailment
+    print('Evaluating model over ' + args.eval_set)
+    with open(args.eval_set, 'r') as f:
+        entailed_correct = 0
+        entailed_incorrect = 0
+        nonentailed_correct = 0
+        nonentailed_incorrect = 0
+        total_correct = 0
+        total_incorrect = 0
 
-        if is_correct and is_gold_entailment:
-            entailed_correct += 1
-            total_correct += 1
-        if is_correct and (not is_gold_entailment):
-            nonentailed_correct += 1
-            total_correct += 1
-        if (not is_correct) and is_gold_entailment:
-            entailed_incorrect += 1
-            total_incorrect += 1
-        if (not is_correct) and (not is_gold_entailment):
-            nonentailed_incorrect += 1
-            total_incorrect += 1
+        tsv_reader = csv.DictReader(f, delimiter='\t')
+        for row in tqdm(tsv_reader):
+            premise = row['sentence1']
+            hypothesis = row['sentence2']
+
+            instance = reader.text_to_instance(premise, hypothesis)
+            logits = model.forward_on_instance(instance)['label_logits']
+            label_id = np.argmax(logits)
+            label = model.vocab.get_token_from_index(label_id, 'labels')
+
+            # Contradiction and neutral are both "non-entailment".
+            is_pred_entailment = label == 'entailment'
+            is_gold_entailment = row['gold_label'] == 'entailment'
+            is_correct = is_pred_entailment == is_gold_entailment
+
+            if is_correct and is_gold_entailment:
+                entailed_correct += 1
+                total_correct += 1
+            if is_correct and (not is_gold_entailment):
+                nonentailed_correct += 1
+                total_correct += 1
+            if (not is_correct) and is_gold_entailment:
+                entailed_incorrect += 1
+                total_incorrect += 1
+            if (not is_correct) and (not is_gold_entailment):
+                nonentailed_incorrect += 1
+                total_incorrect += 1
 
     print('Total correct: ' + str(total_correct))
     print('    Entailed: ' + str(entailed_correct))
@@ -69,3 +82,7 @@ with open(INPUT_TSV, 'r') as f:
     print('Total accuracy: ' + str(total_correct * 1.0 / (total_correct + total_incorrect)))
     print('    Entailed: ' + str(entailed_correct * 1.0 / (entailed_correct + entailed_incorrect)))
     print('    Non-entailed: ' + str(nonentailed_correct * 1.0 / (nonentailed_correct + nonentailed_incorrect)))
+
+
+if __name__ == '__main__':
+    main()
