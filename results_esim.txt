@@ -82,6 +82,90 @@ Total accuracy: 0.6051666080313615
 ------------------------------------------
 
 
+ESIM / hverbsyn
+------------------------------------------
+Total correct: 14986
+    Entailed: 3721
+    Non-entailed: 11265
+Total incorrect: 3685
+    Entailed: 2719
+    Non-entailed: 966
+Total accuracy: 0.8026351025654759
+    Entailed: 0.5777950310559006
+    Non-entailed: 0.9210203581064508
+------------------------------------------
+
+
+ESIM / hverbant
+------------------------------------------
+Total correct: 9839
+    Entailed: 616
+    Non-entailed: 9223
+Total incorrect: 7650
+    Entailed: 5341
+    Non-entailed: 2309
+Total accuracy: 0.5625821945222711
+    Entailed: 0.10340775558166862
+    Non-entailed: 0.7997745404092959
+------------------------------------------
+
+
+ESIM / hadvsyn
+------------------------------------------
+Total correct: 3832
+    Entailed: 792
+    Non-entailed: 3040
+Total incorrect: 771
+    Entailed: 546
+    Non-entailed: 225
+Total accuracy: 0.8325005431240495
+    Entailed: 0.5919282511210763
+    Non-entailed: 0.9310872894333844
+------------------------------------------
+
+
+ESIM / hadvant
+------------------------------------------
+Total correct: 1583
+    Entailed: 161
+    Non-entailed: 1422
+Total incorrect: 1314
+    Entailed: 976
+    Non-entailed: 338
+Total accuracy: 0.546427338626165
+    Entailed: 0.14160070360598065
+    Non-entailed: 0.8079545454545455
+------------------------------------------
+
+
+ESIM / hnounsyn
+------------------------------------------
+Total correct: 12602
+    Entailed: 2374
+    Non-entailed: 10228
+Total incorrect: 3880
+    Entailed: 3303
+    Non-entailed: 577
+Total accuracy: 0.764591675767504
+    Entailed: 0.4181786154659151
+    Non-entailed: 0.9465987968533086
+------------------------------------------
+
+
+ESIM / hnounant
+------------------------------------------
+Total correct: 3450
+    Entailed: 140
+    Non-entailed: 3310
+Total incorrect: 2618
+    Entailed: 1797
+    Non-entailed: 821
+Total accuracy: 0.5685563612392881
+    Entailed: 0.07227671657201859
+    Non-entailed: 0.8012587751149842
+------------------------------------------
+
+
 ESIM /
 ------------------------------------------
 ------------------------------------------

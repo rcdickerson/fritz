@@ -82,6 +82,90 @@ Total accuracy: 0.6177815751118259
 ------------------------------------------
 
 
+DA / hverbsyn
+-----------------------------------------
+Total correct: 14325
+    Entailed: 3334
+    Non-entailed: 10991
+Total incorrect: 4346
+    Entailed: 3106
+    Non-entailed: 1240
+Total accuracy: 0.767232606716298
+    Entailed: 0.5177018633540372
+    Non-entailed: 0.8986182650641812
+------------------------------------------
+
+
+DA / hverbant
+------------------------------------------
+Total correct: 9372
+    Entailed: 721
+    Non-entailed: 8651
+Total incorrect: 8117
+    Entailed: 5236
+    Non-entailed: 2881
+Total accuracy: 0.5358796958087941
+    Entailed: 0.12103407755581669
+    Non-entailed: 0.7501734304543878
+------------------------------------------
+
+
+DA / hadvsyn
+------------------------------------------
+Total correct: 3542
+    Entailed: 636
+    Non-entailed: 2906
+Total incorrect: 1061
+    Entailed: 702
+    Non-entailed: 359
+Total accuracy: 0.7694981533782316
+    Entailed: 0.47533632286995514
+    Non-entailed: 0.8900459418070444
+------------------------------------------
+
+
+DA / hadvant
+------------------------------------------
+Total correct: 1522
+    Entailed: 145
+    Non-entailed: 1377
+Total incorrect: 1375
+    Entailed: 992
+    Non-entailed: 383
+Total accuracy: 0.5253710735243355
+    Entailed: 0.12752858399296393
+    Non-entailed: 0.7823863636363636
+------------------------------------------
+
+
+DA / hnounsyn
+------------------------------------------
+Total correct: 12074
+    Entailed: 1990
+    Non-entailed: 10084
+Total incorrect: 4408
+    Entailed: 3687
+    Non-entailed: 721
+Total accuracy: 0.7325567285523602
+    Entailed: 0.3505372555927426
+    Non-entailed: 0.9332716335030079
+------------------------------------------
+
+
+DA / hnounant
+------------------------------------------
+Total correct: 3367
+    Entailed: 182
+    Non-entailed: 3185
+Total incorrect: 2701
+    Entailed: 1755
+    Non-entailed: 946
+Total accuracy: 0.5548780487804879
+    Entailed: 0.09395973154362416
+    Non-entailed: 0.7709997579278625
+------------------------------------------
+
+
 DA /
 ------------------------------------------
 ------------------------------------------
