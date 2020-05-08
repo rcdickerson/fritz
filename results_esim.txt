@@ -1,0 +1,87 @@
+ESIM / HANS
+------------------------------------------
+Total correct: 15294
+    Entailed: 14788
+    Non-entailed: 506
+Total incorrect: 14706
+    Entailed: 212
+    Non-entailed: 14494
+Total accuracy: 0.5098
+    Entailed: 0.9858666666666667
+    Non-entailed: 0.03373333333333333
+------------------------------------------
+
+
+ESIM / MNLI_ALL
+------------------------------------------
+Total correct: 16922
+    Entailed: 5076
+    Non-entailed: 11846
+Total incorrect: 2975
+    Entailed: 1827
+    Non-entailed: 1148
+Total accuracy: 0.8504799718550535
+    Entailed: 0.7353324641460235
+    Non-entailed: 0.9116515314760659
+------------------------------------------
+
+
+ESIM / MNLI_MATCHED
+------------------------------------------
+Total correct: 8368
+    Entailed: 2470
+    Non-entailed: 5898
+Total incorrect: 1529
+    Entailed: 970
+    Non-entailed: 559
+Total accuracy: 0.845508740022229
+    Entailed: 0.7180232558139535
+    Non-entailed: 0.913427288214341
+------------------------------------------
+
+
+ESIM / MNLI_MISMATCHED
+------------------------------------------
+Total correct: 8524
+    Entailed: 2585
+    Non-entailed: 5939
+Total incorrect: 1476
+    Entailed: 878
+    Non-entailed: 598
+Total accuracy: 0.8524
+    Entailed: 0.7464626046780248
+    Non-entailed: 0.9085207281627657
+------------------------------------------
+
+
+ESIM / shuffled
+------------------------------------------
+Total correct: 13824
+    Entailed: 0
+    Non-entailed: 13824
+Total incorrect: 6073
+    Entailed: 0
+    Non-entailed: 6073
+Total accuracy: 0.6947781072523496
+    Entailed: 0.0
+    Non-entailed: 0.6947781072523496
+------------------------------------------
+
+
+ESIM / neghyp
+------------------------------------------
+Total correct: 12041
+    Entailed: 452
+    Non-entailed: 11589
+Total incorrect: 7856
+    Entailed: 6319
+    Non-entailed: 1537
+Total accuracy: 0.6051666080313615
+    Entailed: 0.06675527987003396
+    Non-entailed: 0.8829041596830718
+------------------------------------------
+
+
+ESIM /
+------------------------------------------
+------------------------------------------

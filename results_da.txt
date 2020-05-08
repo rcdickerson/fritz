@@ -1,0 +1,87 @@
+DA / HANS
+------------------------------------------
+Total correct: 15102
+    Entailed: 14691
+    Non-entailed: 411
+Total incorrect: 14898
+    Entailed: 309
+    Non-entailed: 14589
+Total accuracy: 0.5034
+    Entailed: 0.9794
+    Non-entailed: 0.0274
+------------------------------------------
+
+
+DA / MNLI_ALL
+------------------------------------------
+Total correct: 16011
+    Entailed: 4721
+    Non-entailed: 11290
+Total incorrect: 3886
+    Entailed: 2182
+    Non-entailed: 1704
+Total accuracy: 0.8046941750012565
+    Entailed: 0.683905548312328
+    Non-entailed: 0.8688625519470525
+------------------------------------------
+
+
+DA / MNLI_MATCHED
+------------------------------------------
+Total correct: 7903
+    Entailed: 2285
+    Non-entailed: 5618
+Total incorrect: 1994
+    Entailed: 1155
+    Non-entailed: 839
+Total accuracy: 0.7985248054966151
+    Entailed: 0.6642441860465116
+    Non-entailed: 0.8700634969800217
+------------------------------------------
+
+
+DA / MNLI_MISMATCHED
+------------------------------------------
+Total correct: 8070
+    Entailed: 2401
+    Non-entailed: 5669
+Total incorrect: 1930
+    Entailed: 1062
+    Non-entailed: 868
+Total accuracy: 0.807
+    Entailed: 0.6933294831071325
+    Non-entailed: 0.8672173780021416
+------------------------------------------
+
+
+DA / shuffled
+------------------------------------------
+Total correct: 13449
+    Entailed: 0
+    Non-entailed: 13449
+Total incorrect: 6448
+    Entailed: 0
+    Non-entailed: 6448
+Total accuracy: 0.6759310448811379
+    Entailed: 0.0
+    Non-entailed: 0.6759310448811379
+------------------------------------------
+
+
+DA / neghyp
+------------------------------------------
+Total correct: 12292
+    Entailed: 597
+    Non-entailed: 11695
+Total incorrect: 7605
+    Entailed: 6174
+    Non-entailed: 1431
+Total accuracy: 0.6177815751118259
+    Entailed: 0.08817013735046522
+    Non-entailed: 0.8909797348773427
+------------------------------------------
+
+
+DA /
+------------------------------------------
+------------------------------------------

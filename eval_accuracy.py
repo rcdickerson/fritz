@@ -73,15 +73,30 @@ def main():
                 nonentailed_incorrect += 1
                 total_incorrect += 1
 
+    if total_correct + total_incorrect == 0:
+        total_accuracy = 0.0
+    else:
+        total_accuracy = total_correct * 1.0 / (total_correct + total_incorrect)
+
+    if entailed_correct + entailed_incorrect == 0:
+        entailed_accuracy = 0.0
+    else:
+        entailed_accuracy = entailed_correct * 1.0 / (entailed_correct + entailed_incorrect)
+
+    if nonentailed_correct + nonentailed_incorrect == 0:
+        nonentailed_accuracy = 0.0
+    else:
+        nonentailed_accuracy = nonentailed_correct * 1.0 / (nonentailed_correct + nonentailed_incorrect)
+
     print('Total correct: ' + str(total_correct))
     print('    Entailed: ' + str(entailed_correct))
     print('    Non-entailed: ' + str(nonentailed_correct))
     print('Total incorrect: ' + str(total_incorrect))
     print('    Entailed: ' + str(entailed_incorrect))
     print('    Non-entailed: ' + str(nonentailed_incorrect))
-    print('Total accuracy: ' + str(total_correct * 1.0 / (total_correct + total_incorrect)))
-    print('    Entailed: ' + str(entailed_correct * 1.0 / (entailed_correct + entailed_incorrect)))
-    print('    Non-entailed: ' + str(nonentailed_correct * 1.0 / (nonentailed_correct + nonentailed_incorrect)))
+    print('Total accuracy: ' + str(total_accuracy))
+    print('    Entailed: ' + str(entailed_accuracy))
+    print('    Non-entailed: ' + str(nonentailed_accuracy))
 
 
 if __name__ == '__main__':
