@@ -181,6 +181,36 @@ Total accuracy: 0.5685563612392881
 ------------------------------------------
 
 
+ESIM / shuffleprem
+------------------------------------------
+Total correct: 587
+    Entailed: 0
+    Non-entailed: 587
+Total incorrect: 19307
+    Entailed: 0
+    Non-entailed: 19307
+Total accuracy: 0.029506383834321907
+    Entailed: 0.0
+    Non-entailed: 0.029506383834321907
+Errors from model: 3
+------------------------------------------
+
+
+ESIM / premsubseq
+------------------------------------------
+Total correct: 5362
+    Entailed: 0
+    Non-entailed: 5362
+Total incorrect: 14504
+    Entailed: 0
+    Non-entailed: 14504
+Total accuracy: 0.26990838618745594
+    Entailed: 0.0
+    Non-entailed: 0.26990838618745594
+Errors from model: 2
+------------------------------------------
+
+
 ESIM /
 ------------------------------------------
 ------------------------------------------

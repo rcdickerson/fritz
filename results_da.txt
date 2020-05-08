@@ -181,6 +181,34 @@ Total accuracy: 0.5548780487804879
 ------------------------------------------
 
 
+DA / shuffleprem
+------------------------------------------
+Total correct: 186
+    Entailed: 0
+    Non-entailed: 186
+Total incorrect: 19708
+    Entailed: 0
+    Non-entailed: 19708
+Total accuracy: 0.009349552628933347
+    Entailed: 0.0
+    Non-entailed: 0.009349552628933347
+Errors from model: 3
+------------------------------------------
+
+
+DA / premsubseq
+------------------------------------------
+Total correct: 2946
+    Entailed: 0
+    Non-entailed: 2946
+Total incorrect: 16920
+    Entailed: 0
+    Non-entailed: 16920
+Total accuracy: 0.14829356689821807
+    Entailed: 0.0
+    Non-entailed: 0.14829356689821807
+Errors from model: 2
+------------------------------------------
 
 
 DA /

@@ -15,7 +15,7 @@ def parse_args():
     parser.add_argument('-o', '--output', type=str, default='out.tsv',
                         help='file path to output perturbed data')
     parser.add_argument('-t', '--type', type=str, dest='ptype', default='shuffle',
-                        choices=['shuffle',
+                        choices=['shuffle', 'shuffleprem', 'premsubseq',
                                  'neghyp', 'negprem',
                                  'hverbsyn', 'hverbant',
                                  'hadvsyn', 'hadvant',
@@ -69,6 +69,22 @@ def perturb(ptype, row):
         hypothesis = ' '.join(hwords)
         is_entailment = False
         perturbed = True
+
+    elif ptype == 'shuffleprem':
+        pwords = premise.split()
+        random.shuffle(pwords)
+        hypothesis = ' '.join(pwords)
+        is_entailment = False
+        perturbed = True
+
+    elif ptype == 'premsubseq':
+        pwords = premise.split()
+        if len(pwords) > 1:
+            start = random.randrange(0, len(pwords) - 1)
+            end = random.randrange(start + 1, len(pwords))
+            hypothesis = ' '.join(pwords[start:end])
+            is_entailment = False
+            perturbed = True
 
     elif ptype == 'neghyp':
         hypothesis = 'It is not the case that ' + hypothesis[0].lower() + hypothesis[1:]
