@@ -82,6 +82,21 @@ Total accuracy: 0.6051666080313615
 ------------------------------------------
 
 
+ESIM / negprem
+------------------------------------------
+Total correct: 15459
+    Entailed: 0
+    Non-entailed: 15459
+Total incorrect: 4435
+    Entailed: 0
+    Non-entailed: 4435
+Total accuracy: 0.7770684628531216
+    Entailed: 0.0
+    Non-entailed: 0.7770684628531216
+Errors from model: 3
+------------------------------------------
+
+
 ESIM / hverbsyn
 ------------------------------------------
 Total correct: 14986

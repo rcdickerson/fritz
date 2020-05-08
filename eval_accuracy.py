@@ -44,6 +44,7 @@ def main():
         nonentailed_incorrect = 0
         total_correct = 0
         total_incorrect = 0
+        errors_from_model = 0
 
         tsv_reader = csv.DictReader(f, delimiter='\t')
         for row in tqdm(tsv_reader):
@@ -51,7 +52,11 @@ def main():
             hypothesis = row['sentence2']
 
             instance = reader.text_to_instance(premise, hypothesis)
-            logits = model.forward_on_instance(instance)['label_logits']
+            try:
+                logits = model.forward_on_instance(instance)['label_logits']
+            except:
+                errors_from_model += 1
+                continue
             label_id = np.argmax(logits)
             label = model.vocab.get_token_from_index(label_id, 'labels')
 
@@ -97,6 +102,8 @@ def main():
     print('Total accuracy: ' + str(total_accuracy))
     print('    Entailed: ' + str(entailed_accuracy))
     print('    Non-entailed: ' + str(nonentailed_accuracy))
+    if (errors_from_model > 0):
+        print("Errors from model: " + str(errors_from_model))
 
 
 if __name__ == '__main__':

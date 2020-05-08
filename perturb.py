@@ -15,8 +15,11 @@ def parse_args():
     parser.add_argument('-o', '--output', type=str, default='out.tsv',
                         help='file path to output perturbed data')
     parser.add_argument('-t', '--type', type=str, dest='ptype', default='shuffle',
-                        choices=['shuffle', 'neghyp', 'hverbsyn', 'hverbant',
-                                 'hadvsyn', 'hadvant', 'hnounsyn', 'hnounant'],
+                        choices=['shuffle',
+                                 'neghyp', 'negprem',
+                                 'hverbsyn', 'hverbant',
+                                 'hadvsyn', 'hadvant',
+                                 'hnounsyn', 'hnounant'],
                         help='the type of perturbation to perform, default is swap')
     return parser.parse_args()
 
@@ -70,6 +73,11 @@ def perturb(ptype, row):
     elif ptype == 'neghyp':
         hypothesis = 'It is not the case that ' + hypothesis[0].lower() + hypothesis[1:]
         is_entailment = False if is_neutral else not is_entailment
+        perturbed = True
+
+    elif ptype == 'negprem':
+        hypothesis = 'It is not the case that ' + premise[0].lower() + premise[1:]
+        is_entailment = False
         perturbed = True
 
     elif ptype == 'hverbsyn':

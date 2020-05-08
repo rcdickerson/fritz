@@ -82,6 +82,21 @@ Total accuracy: 0.6177815751118259
 ------------------------------------------
 
 
+DA / negprem
+------------------------------------------
+Total correct: 13713
+    Entailed: 0
+    Non-entailed: 13713
+Total incorrect: 6181
+    Entailed: 0
+    Non-entailed: 6181
+Total accuracy: 0.6893033075299085
+    Entailed: 0.0
+    Non-entailed: 0.6893033075299085
+Errors from model: 3
+------------------------------------------
+
+
 DA / hverbsyn
 -----------------------------------------
 Total correct: 14325
@@ -164,6 +179,8 @@ Total accuracy: 0.5548780487804879
     Entailed: 0.09395973154362416
     Non-entailed: 0.7709997579278625
 ------------------------------------------
+
+
 
 
 DA /
