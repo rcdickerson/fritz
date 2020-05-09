@@ -38,8 +38,8 @@ Models were trained on the [MNLI corpus](https://cims.nyu.edu/~sbowman/multinli/
 The model configurations used in these experiments are located in the `model_params` directory. Training was done via the AllenNLP CLI:
 
 ```bash
-allennlp train -s ./da model_params/da.jsonnet 
-allennlp train -s ./esim model_params/esim.jsonnet 
+allennlp train -s ./models/da ./model_params/da.jsonnet 
+allennlp train -s ./models/esim ./model_params/esim.jsonnet 
 ```
 Training data is assumed to be located at `../multinli_1.0` and the batch size is set to 32, but these (and other) parameters may be changed by editing the appropriate `jsonnet` file in `model_params`.
 
@@ -67,6 +67,12 @@ optional arguments:
                         the type of perturbation to perform, default is shuffle
 ```
 
+For example, transforming `eval_sets/mnli_all.tsv` using the `premsubseq` transformation would look like: 
+
+```bash
+python ./perturb.py ./eval_sets/mnli_all.tsv -t premsubseq
+```
+
 Available transforms are:
 
 * **shuffle**: arbitrarily reorders the words in both the premise and hypothesis.
@@ -80,4 +86,35 @@ Available transforms are:
 
 Evaluation Datasets
 -------------------
-TODO
+
+The `eval_sets` directory contains the MNLI development set along with `perturb.py`-generated transformations of that set using each of the transform types listed above.
+
+Accuracy of the models over these datasets may be evaluated using `eval_accuracy.py`:
+
+```
+usage: eval_accuracy.py [-h] --model_params MODEL_PARAMS --model_dir MODEL_DIR --eval_set EVAL_SET
+
+Evaluate dataset accuracy on a variety of NLI models.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --model_params MODEL_PARAMS
+                        the .jsonnet model configuration
+  --model_dir MODEL_DIR
+                        the model serialization directory
+  --eval_set EVAL_SET   the evaluation data set
+```
+
+For example, evaluating the accuracy of the DA model over `eval_sets/premsubseq.tsv` would look like:
+
+```bash
+python ./eval_accuracy.py --model_params model_params/da.jsonnet --model_dir ./models/da --eval_set ./eval_sets/premsubseq.tsv
+```
+
+assuming a model trained on `model_params/da.jsonnet` located at `models/da`.
+
+
+Results
+-------
+
+Output from `eval_accuracy.py` on each of the datasets in `eval_sets` is listed in `results_da.txt` for runs using the DA model and `results_esim.txt` for runs using the ESIM model.
