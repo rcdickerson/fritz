@@ -20,7 +20,7 @@ def parse_args():
                                  'hverbsyn', 'hverbant',
                                  'hadvsyn', 'hadvant',
                                  'hnounsyn', 'hnounant'],
-                        help='the type of perturbation to perform, default is swap')
+                        help='the type of perturbation to perform, default is shuffle')
     return parser.parse_args()
 
 
