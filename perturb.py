@@ -109,6 +109,7 @@ def perturb(ptype, row):
     elif ptype == 'hadvsyn':
         hparse = Tree.fromstring(row['sentence2_parse']).pos()
         (perturbed, hypothesis) = transform_sentence(hparse, 'RB', lambda word: rand_syn(word, 'r'))
+
     elif ptype == 'hadvant':
         hparse = Tree.fromstring(row['sentence2_parse']).pos()
         (perturbed, hypothesis) = transform_sentence(hparse, 'RB', lambda word: rand_ant(word, 'r'))
@@ -118,12 +119,12 @@ def perturb(ptype, row):
     elif ptype == 'hnounsyn':
         hparse = Tree.fromstring(row['sentence2_parse']).pos()
         (perturbed, hypothesis) = transform_sentence(hparse, 'NN', lambda word: rand_syn(word, 'n'))
+
     elif ptype == 'hnounant':
         hparse = Tree.fromstring(row['sentence2_parse']).pos()
         (perturbed, hypothesis) = transform_sentence(hparse, 'NN', lambda word: rand_ant(word, 'n'))
         if perturbed:
             is_entailment = False if is_neutral else not is_entailment
-
 
     return (perturbed,
             {'gold_label': 'entailment' if is_entailment else 'non-entailment',
