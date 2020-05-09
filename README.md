@@ -14,6 +14,17 @@ The goal of this project is to experiment with exposing the presence of similar 
 The code in this repository was used to evaluate the performance of two different NLI models on various dataset transformations.
 
 
+Setup
+-----
+
+Code was written in Python 3, and library dependencies are listed in `requirements.txt`. Setting up with [virtualenv](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/) in Linux would look like:
+
+```bash
+python3 -m virtualenv env
+source env/bin/activate
+pip install -r requirements.txt
+```
+
 Models
 ------
 
