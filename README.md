@@ -17,7 +17,7 @@ The code in this repository was used to evaluate the performance of two differen
 Setup
 -----
 
-Code was written in Python 3, and library dependencies are listed in `requirements.txt`. Setting up with [virtualenv](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/) in Linux would look like:
+Code was written in Python 3, and library dependencies are listed in `requirements.txt`. Setting up with [virtualenv](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/) in Linux might look like:
 
 ```bash
 python3 -m virtualenv env
@@ -41,12 +41,42 @@ The model configurations used in these experiments are located in the `model_par
 allennlp train -s ./da model_params/da.jsonnet 
 allennlp train -s ./esim model_params/esim.jsonnet 
 ```
-MNLI training data is assumed to be located at `../multinli_1.0` and the batch size is set to 32, but these (and other) parameters may be changed by editing the appropriate `jsonnet` files in `model_params`.
+Training data is assumed to be located at `../multinli_1.0` and the batch size is set to 32, but these (and other) parameters may be changed by editing the appropriate `jsonnet` file in `model_params`.
 
 
 Transformations
 ---------------
-TODO
+
+All transformations are implemented in `perturb.py`:
+
+```
+usage: perturb.py [-h] [-o OUTPUT]
+                  [-t {shuffle,shuffleprem,premsubseq,neghyp,negprem,hverbsyn,hverbant,hadvsyn,hadvant,hnounsyn,hnounant}]
+                  infile
+
+Perturb SNLI / MNLI style data
+
+positional arguments:
+  infile                file path of the input data to manipulate
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -o OUTPUT, --output OUTPUT
+                        file path to output perturbed data
+  -t, --type {shuffle,shuffleprem,premsubseq,neghyp,negprem,hverbsyn,hverbant,hadvsyn,hadvant,hnounsyn,hnounant}
+                        the type of perturbation to perform, default is shuffle
+```
+
+Available transforms are:
+
+* **shuffle**: arbitrarily reorders the words in both the premise and hypothesis.
+* **shuffleprem**: sets the hypothesis to an arbitrary reordering of the words in the premise.
+* **premsubseq**: sets the hypothesis to an arbitrary subsequence of the premise.
+* **neghyp**: negates the hypothesis by prepending it with the clause "It is not the case that".
+* **negprem**: negates the premise by prepending it with the clause "It is not the case that".
+* **hXsyn** (X = verb, adv, or noun): randomly replaces X part of speech in the hypothesis with a synonym using [WordNet](https://wordnet.princeton.edu/)
+* **hXant** (X = verb, adv, or noun): randomly replaces X part of speech in the hypothesis with an antonym using [WordNet](https://wordnet.princeton.edu/)
+
 
 Evaluation Datasets
 -------------------
