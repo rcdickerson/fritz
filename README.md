@@ -87,7 +87,7 @@ Available transforms are:
 Evaluation Datasets
 -------------------
 
-The `eval_sets` directory contains the MNLI development set along with `perturb.py`-generated transformations of that set using each of the transform types listed above.
+The `eval_sets` directory contains the MNLI development set, the HANS dataset, and `perturb.py`-generated transformations of the MNLI development set using each of the transform types listed above.
 
 Accuracy of the models over these datasets may be evaluated using `eval_accuracy.py`:
 
